@@ -11,5 +11,123 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background: #06496d;
+  background-image: url('./assets/grad.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.buttons button {
+  margin: 20px 10px;
+  padding: 4px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 4px 2px black;
+}
+
+.successBtn{
+  background-color: green;
+}
+.errorBtn{
+  background-color: red;
+}
+.invalidBtn{
+  background-color: rgb(204, 204, 0);
+}
+.infoBtn{
+  background-color: rgb(0, 146, 204);
+}
+
+.toastDiv {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.toast {
+  position: relative;
+  width: 400px;
+  height: 60px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #4b4b4b;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  transform: translateX(100%);
+  animation: moveLeft 0.5s linear forwards;
+}
+
+@keyframes moveLeft {
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.toast.remove {
+  transform: translateX(0);
+  animation: moveRight 1s linear forwards;
+}
+
+@keyframes moveRight {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.toast::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  animation: decrease 5s linear;
+}
+
+.toast.success::after {
+  background-color: green;
+}
+
+.toast.error::after {
+  background-color: red;
+}
+
+.toast.invalid::after {
+  background-color: rgb(204, 204, 0);
+}
+.toast.info::after {
+  background-color: rgb(0, 146, 204);
+}
+
+@keyframes decrease {
+  100% {
+    width: 0;
+  }
+}
+
+.toast i {
+  margin: 0 10px;
+  font-size: 25px;
+}
+
+.toast.success i {
+  color: green;
+}
+.toast.error i {
+  color: red;
+}
+
+.toast.invalid i {
+  color: rgb(226, 226, 3);
+}
+
+.toast.info i {
+  color: rgb(0, 146, 204);
 }
